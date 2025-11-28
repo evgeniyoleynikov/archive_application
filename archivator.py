@@ -6,7 +6,11 @@ import shutil;
 import threading;
 
 def create_zip(folder, subfolder):
-    shutil.make_archive(os.path.join(folder, subfolder), 'zip', os.path.join(folder, subfolder));
+    try:
+        shutil.make_archive(os.path.join(folder, subfolder), 'zip', os.path.join(folder, subfolder));
+    except OSError:
+        messagebox.showerror('Ошибка', 'Ошибка при создании архивного файла');
+        return;
     messagebox.showinfo("Архивирирование папки", f"{subfolder} заархивирована")
 
 
