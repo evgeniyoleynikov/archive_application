@@ -4,6 +4,7 @@ from tkinter import filedialog, messagebox
 from tkinter.ttk import Entry, Button, Frame;
 import shutil;
 import threading;
+import multiprocessing;
 
 def create_zip(folder, subfolder):
     try:
@@ -46,8 +47,9 @@ def archivate_fld():
     #теперь можно архивировать
     for sub_folder in sub_folders:
         #create_zip(fld_name, sub_folder);
-        zip_thread = threading.Thread(target=create_zip, args = (fld_name, sub_folder));
-        zip_thread.start();
+        zip_process = multiprocessing.Process(target=create_zip, args = (fld_name, sub_folder));
+        zip_process.start();
+
 
 
 if __name__=='__main__':
