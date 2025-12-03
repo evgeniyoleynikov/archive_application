@@ -3,7 +3,6 @@ import tkinter as tk;
 from tkinter import filedialog, messagebox
 from tkinter.ttk import Entry, Button, Frame;
 import shutil;
-import threading;
 import multiprocessing;
 
 def create_zip(folder, subfolder):
